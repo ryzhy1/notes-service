@@ -1,0 +1,6 @@
+env: "local"
+storage: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
+token_ttl: "3600s"
+server:
+  port: "8080"
+  timeout: "1000s"

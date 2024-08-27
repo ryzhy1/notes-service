@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  note-service:
+    build: ./
+    command: ./app
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
